@@ -3,6 +3,9 @@
 const debug = require('debug')('http:storage');
 const storage = {};
 const mkdirp = require('mkdirp');
+const fs = require('fs');
+// const Promise = require('bluebird');
+// const fs = Promise.promisifyAll(require('fs'), {suffix: 'Prom'});
 
 module.exports = exports = {};
 
@@ -16,10 +19,11 @@ exports.createItem = function(schema, item) {
 
   storage[schema][item.id] = item;
 
+
   mkdirp('../data/planets', function(err){
     if(err) {console.error(err);}
     else {
-      
+      fs.writeFile(`../data/planets/${item.name}.json`,)
     }
   });
 
